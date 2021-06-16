@@ -87,7 +87,7 @@ class Interactions(object):
                 tmp_seq = tmp_seq[-seq_len:]
 
             if len(tmp_seq) == 0:
-                print 'data_loader.py, line 215: error -->',uid, iid
+                print ('data_loader.py, line 215: error -->',uid, iid)
 
             user_seq[-len(tmp_seq):] = tmp_seq
             user_seqs[i] = user_seq

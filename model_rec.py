@@ -112,7 +112,7 @@ class Rec(ModelBased):
         # self._max_item_seq_len = interactions._max_len_item_seq if max_seq_len == -1 else max_seq_len
 
         (self._n_users, self._n_items) = (interactions.num_users, interactions.num_items)
-        print 'total users: %d, total items: %d'%(self._n_users, self._n_items)
+        print ('total users: %d, total items: %d'%(self._n_users, self._n_items))
         if self._model == 'sdm':
             self._net = SDM(n_users=self._n_users, n_items=self._n_items, embedding_size=self._embedding_size,
                                   item_seq_size=self._max_user_seq_len, n_hops=self._n_hops,
@@ -141,7 +141,7 @@ class Rec(ModelBased):
         elif self._args.model == 'sdm': reg = self._args.reg_sdm
         else: reg = 1e-6
 
-        print 'setting reg to :', reg
+        print ('setting reg to :', reg)
 
         if self._optimizer_func is None:
             self._optimizer = optim.Adam(
@@ -179,7 +179,7 @@ class Rec(ModelBased):
         if args.load_best_chkpoint > 0:
 
             best_hit, best_ndcg = self.load_checkpoint(args)
-            print 'Results from best checkpoints ...'
+            print ('Results from best checkpoints ...')
             t1 = time.time()
             hits, ndcgs = my_evaluator.evaluate(self, testRatings, testNegatives, topN)
             t2 = time.time()
@@ -189,10 +189,10 @@ class Rec(ModelBased):
                   '| Test hits@%d = %.3f | Test ndcg@%d = %.3f |'
                   % (eval_time, topN, hits, topN, ndcgs))
             topN = 10
-            print 'End!'
+            print ('End!')
 
         if args.eval:
-            print 'Evaluation using the saved checkpoint done!'
+            print ('Evaluation using the saved checkpoint done!')
             return
 
         if self._has_params():

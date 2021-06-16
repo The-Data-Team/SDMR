@@ -95,7 +95,7 @@ class ModelBased(object):
             sdp_files_pattern = '%s_sdp_%s*'%(args.dataset, self._make_model_desc(args, 'sdp'))
             # print sdp_files_pattern
             for filepath in glob.glob(os.path.join(args.saved_path, sdp_files_pattern)):
-                print filepath
+                print (filepath)
                 if os.path.isfile(filepath):
                     print("=> loading checkpoint '{}'".format(filepath))
                     if args.cuda:

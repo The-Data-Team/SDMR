@@ -46,8 +46,8 @@ def eval_one_rating(model, testRatings, testNegatives, K, idx):
     items = np.asarray(items)
     users = np.full(len(items), uid, dtype=np.int64)
     if np.sum(items >= max_item_id) >= 1:
-        print items
-        print 'error because the exiting item id that is not observed in training data.'
+        print (items)
+        print ('error because the exiting item id that is not observed in training data.')
         sys.exit(1)
 
 

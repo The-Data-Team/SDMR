@@ -83,7 +83,7 @@ gc.BATCH_SIZE = args.batch_size
 gc.SEED = args.seed
 gc.model_type = args.model
 gc.SDM_INIT_TRANSFORM_TYPE = args.sdm_init_transform_type
-print 'SDM init type:', gc.SDM_INIT_TRANSFORM_TYPE
+print ('SDM init type:', gc.SDM_INIT_TRANSFORM_TYPE)
 #reuse from neural collaborative filtering
 def load_rating_file_as_list(filename):
     ratingList = []
@@ -118,7 +118,7 @@ test_neg_file = os.path.join(args.path, args.dataset, '%s.test.negative'%args.da
 testRatings = load_rating_file_as_list(test_file)
 testNegatives = load_negative_file(test_neg_file)
 
-print args
+print (args)
 
 
 rec_model = Rec(
@@ -150,12 +150,12 @@ gc.MAX_SEQ_LEN = MAX_SEQ_LEN
 
 t0 = time.time()
 t1 = time.time()
-print 'parsing data'
+print ('parsing data')
 train_iteractions = data_loader.load_data(train_file, dataset=args.dataset)
 t2 = time.time()
-print 'loading data time: %d (seconds)'%(t2-t1)
+print ('loading data time: %d (seconds)'%(t2-t1))
 
-print 'building the model'
+print ('building the model')
 
 try:
 
@@ -165,7 +165,7 @@ try:
                       max_seq_len=MAX_SEQ_LEN, args=args)
 
 except KeyboardInterrupt:
-    print 'Exiting from training early'
+    print ('Exiting from training early')
 
 t10 = time.time()
-print 'Total running time: %d (seconds)'%(t10-t0)
+print ('Total running time: %d (seconds)'%(t10-t0))
